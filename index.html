@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iwannaberich</title>
+  <meta name="description" content="Iwannaberich is a premium dark donation page with a funny reason to donate, direct Revolut support and Telegram contact." />
+  <meta property="og:title" content="Iwannaberich" />
+  <meta property="og:description" content="Support the anti-poverty mission through Revolut." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&f[]=cabinet-grotesk@500,700,800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2.5rem, 1.4rem + 3vw, 5rem);
+      --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem; --space-20: 5rem; --space-24: 6rem;
+      --color-bg: #f7f6f2; --color-surface: #fbfbf9; --color-surface-2: #f1efeb; --color-border: #d4d1ca; --color-text: #28251d; --color-text-muted: #6f6b63; --color-text-faint: #9e998f; --color-text-inverse: #f9f8f4; --color-primary: #01696f; --color-primary-hover: #0c4e54; --radius-sm: .375rem; --radius-md: .75rem; --radius-lg: 1rem; --radius-xl: 1.5rem; --radius-2xl: 2rem; --radius-full: 999px; --shadow-sm: 0 1px 2px rgba(0,0,0,.08); --shadow-md: 0 20px 60px rgba(0,0,0,.12); --shadow-lg: 0 28px 90px rgba(0,0,0,.18); --transition-interactive: 180ms cubic-bezier(0.16,1,0.3,1); --font-body: 'General Sans', Inter, sans-serif; --font-display: 'Cabinet Grotesk', 'General Sans', sans-serif;
+    }
+    [data-theme="dark"] {
+      --color-bg: #07090c; --color-surface: #0e1217; --color-surface-2: #141920; --color-border: #232a33; --color-text: #f3f5f7; --color-text-muted: #a4afbb; --color-text-faint: #687381; --color-text-inverse: #07090c; --color-primary: #7df2df; --color-primary-hover: #9af6e8; --shadow-sm: 0 1px 2px rgba(0,0,0,.35); --shadow-md: 0 22px 70px rgba(0,0,0,.42); --shadow-lg: 0 40px 120px rgba(0,0,0,.55);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{-webkit-text-size-adjust:none;text-size-adjust:none;scroll-behavior:smooth;scroll-padding-top:5rem}
+    body{min-height:100dvh;line-height:1.6;font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:
+      radial-gradient(circle at 15% 15%, rgba(125,242,223,.10), transparent 24%),
+      radial-gradient(circle at 85% 10%, rgba(125,242,223,.08), transparent 20%),
+      radial-gradient(circle at 50% 100%, rgba(125,242,223,.06), transparent 30%),
+      var(--color-bg);
+      overflow-x:hidden;
+    }
+    img,svg{display:block;max-width:100%;height:auto}
+    a,button{transition:color var(--transition-interactive),background var(--transition-interactive),border-color var(--transition-interactive),transform var(--transition-interactive),box-shadow var(--transition-interactive),opacity var(--transition-interactive)}
+    a{text-decoration:none;color:inherit}
+    button{cursor:pointer;background:none;border:none}
+    :focus-visible{outline:2px solid var(--color-primary);outline-offset:3px;border-radius:var(--radius-sm)}
+    .skip-link{position:absolute;left:var(--space-4);top:-3rem;background:var(--color-primary);color:var(--color-text-inverse);padding:var(--space-3) var(--space-4);border-radius:var(--radius-full);z-index:100}
+    .skip-link:focus{top:var(--space-4)}
+    .container{width:min(1160px,calc(100% - 2rem));margin-inline:auto}
+    .header{position:sticky;top:0;z-index:50;background:rgba(7,9,12,.72);backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:var(--space-4) 0;gap:var(--space-4)}
+    .brand{display:flex;align-items:center;gap:var(--space-3);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:var(--text-sm)}
+    .brand-mark{width:2.2rem;height:2.2rem;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);background:linear-gradient(180deg, rgba(125,242,223,.18), rgba(125,242,223,.04));box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+    .nav{display:flex;align-items:center;gap:var(--space-6)}
+    .nav-links{display:flex;align-items:center;gap:var(--space-4)}
+    .nav-links a{font-size:var(--text-sm);color:var(--color-text-muted)}
+    .nav-links a:hover{color:var(--color-text)}
+    .theme-toggle{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--color-border);background:var(--color-surface)}
+    .hero{padding:clamp(var(--space-16),12vw,var(--space-24)) 0 var(--space-12)}
+    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;gap:var(--space-10);align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.24em;color:var(--color-primary);margin-bottom:var(--space-4)}
+    h1{font-family:var(--font-display);font-size:var(--text-2xl);line-height:.95;letter-spacing:-.05em;max-width:10ch}
+    .lead{margin-top:var(--space-5);max-width:57ch;color:var(--color-text-muted)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:var(--space-4);margin-top:var(--space-8)}
+    .button{min-height:50px;padding:0 var(--space-6);border-radius:var(--radius-full);display:inline-flex;align-items:center;justify-content:center;font-size:var(--text-sm);font-weight:600;border:1px solid transparent}
+    .button-primary{background:var(--color-primary);color:var(--color-text-inverse);box-shadow:var(--shadow-md)}
+    .button-primary:hover{background:var(--color-primary-hover);transform:translateY(-1px)}
+    .button-secondary{background:var(--color-surface);border-color:var(--color-border)}
+    .button-secondary:hover{border-color:var(--color-primary);color:var(--color-primary)}
+    .hero-panel,.card,.fund-box{border:1px solid var(--color-border);background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.015));box-shadow:var(--shadow-sm)}
+    .hero-panel{padding:var(--space-8);border-radius:var(--radius-2xl);position:relative;overflow:hidden}
+    .hero-panel::before{content:"";position:absolute;inset:-30% auto auto 55%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle, rgba(125,242,223,.18), transparent 65%);pointer-events:none}
+    .panel-top{display:flex;align-items:flex-start;justify-content:space-between;gap:var(--space-4);margin-bottom:var(--space-8)}
+    .tiny{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.18em;color:var(--color-text-faint)}
+    .amount{font-size:clamp(3rem,7vw,5rem);line-height:1;font-weight:700;letter-spacing:-.06em;margin-top:var(--space-3)}
+    .muted{color:var(--color-text-muted)}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--space-4)}
+    .card{padding:var(--space-5);border-radius:var(--radius-xl);background:var(--color-surface-2)}
+    .card strong{display:block;font-size:var(--text-lg);margin:var(--space-2) 0}
+    main section{padding:var(--space-12) 0}
+    .section-head{display:grid;gap:var(--space-3);margin-bottom:var(--space-8);max-width:62ch}
+    h2{font-family:var(--font-display);font-size:var(--text-xl);line-height:1.05;letter-spacing:-.04em}
+    .reason-layout{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--space-8)}
+    .funny-box,.info-box,.fund-box{padding:var(--space-8);border-radius:var(--radius-2xl)}
+    .funny-box{background:linear-gradient(180deg, rgba(125,242,223,.08), rgba(255,255,255,.01));border:1px solid var(--color-border);box-shadow:var(--shadow-md)}
+    .quote{font-family:var(--font-display);font-size:clamp(1.6rem,2vw,2.3rem);line-height:1.12;letter-spacing:-.04em;max-width:18ch}
+    .funny-meta{margin-top:var(--space-6);display:flex;flex-wrap:wrap;gap:var(--space-3)}
+    .chip{padding:var(--space-2) var(--space-4);border-radius:var(--radius-full);font-size:var(--text-xs);border:1px solid var(--color-border);background:rgba(255,255,255,.02);color:var(--color-text-muted)}
+    .stack{display:grid;gap:var(--space-4)}
+    .info-box{border:1px solid var(--color-border);background:var(--color-surface)}
+    .info-box h3,.fund-box h3,.card h3{font-size:var(--text-lg);line-height:1.15}
+    .fund-box{display:grid;gap:var(--space-5)}
+    .link-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-4);padding:var(--space-5);border-radius:var(--radius-xl);background:rgba(255,255,255,.02);border:1px solid var(--color-border)}
+    code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:var(--text-sm);color:var(--color-primary);overflow-wrap:anywhere}
+    .footer{padding:var(--space-8) 0 var(--space-10);border-top:1px solid rgba(255,255,255,.06)}
+    .footer-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-4);font-size:var(--text-sm);color:var(--color-text-muted)}
+    @media (max-width: 920px){.hero-grid,.reason-layout{grid-template-columns:1fr}h1{max-width:12ch}.hero-panel,.funny-box,.info-box,.fund-box{padding:var(--space-6)}}
+    @media (max-width: 640px){.header-inner{align-items:flex-start}.nav{gap:var(--space-3)}.grid-2{grid-template-columns:1fr}.link-row,.footer-inner{flex-direction:column;align-items:flex-start}}
+    @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <header class="header">
+    <div class="container header-inner">
+      <a class="brand" href="#home" aria-label="Iwannaberich home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M6 8.5 12 5l6 3.5v7L12 19l-6-3.5v-7Z"></path>
+            <path d="M9 12h6"></path>
+            <path d="M12 9v6"></path>
+          </svg>
+        </span>
+        Iwannaberich
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+        </div>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle theme">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Support the mission</p>
+          <h1>Help me retire from my broke era.</h1>
+          <p class="lead">This is a premium little donation page for a very serious financial emergency: I am tired of being poor, my wallet has seen enough suffering, and I would like to experience the luxurious feeling of having money for once. Your Revolut donation is basically humanitarian aid for a man fighting poverty with vibes and determination.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://revolut.me/raulu8m39" target="_blank" rel="noopener noreferrer">Donate via Revolut</a>
+            <a class="button button-secondary" href="https://t.me/raul98t" target="_blank" rel="noopener noreferrer">Message on Telegram</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel" aria-label="Donation panel">
+          <div class="panel-top">
+            <div>
+              <p class="tiny">Current anti-poverty target</p>
+              <div class="amount">€1,000</div>
+            </div>
+            <p class="tiny">Version 2</p>
+          </div>
+          <div class="grid-2">
+            <article class="card">
+              <p class="tiny">Method</p>
+              <strong>Revolut</strong>
+              <p class="muted">One tap closer to a more financially attractive lifestyle.</p>
+            </article>
+            <article class="card">
+              <p class="tiny">Contact</p>
+              <strong>Telegram</strong>
+              <p class="muted">For questions, support, or elite donor negotiations.</p>
+            </article>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">About</p>
+          <h2>I want to be the world first QUADRILLIONAIRE.</h2>
+          <p class="muted">:))))))))))))).</p>
+        </div>
+
+        <div class="reason-layout">
+          <article class="funny-box">
+            <p class="tiny">Reason for donations</p>
+            <p class="quote">“I am not saying I need to become rich overnight, but I would love to stop living like my card gets nervous every time I enter a supermarket.”</p>
+            <p class="muted" style="margin-top: var(--space-5);">This page exists because being broke has become an overused personality trait, and I believe it is time for character development. Every donation helps me move one step closer to a lifestyle where I can buy things without doing mental math first.</p>
+            <div class="funny-meta">
+              <span class="chip">RICH</span>
+              <span class="chip">Fuckin'QUADRILLIONAIRE</span>
+              <span class="chip">whynot</span>
+            </div>
+          </article>
+
+          <div class="stack">
+            <article class="info-box">
+              <p class="tiny">Target</p>
+              <h3>Having more money than Elon Musk.</h3>
+              <p class="muted" style="margin-top: var(--space-3);">After becoming rich af, im gonna stop the world hunger.</p>
+            </article>
+            <article class="info-box">
+              <p class="tiny">The reason i want to get rich</p>
+              <h3>Why not.</h3>
+              <p class="muted" style="margin-top: var(--space-3);">RICH AF.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="fund-box" style="margin-top: var(--space-8);" aria-label="Support details">
+          <div>
+            <p class="eyebrow">Support details</p>
+            <h2>Real links already included.</h2>
+          </div>
+          <div class="link-row">
+            <div>
+              <p class="tiny">Revolut</p>
+              <code>https://revolut.me/raulu8m39</code>
+            </div>
+            <a class="button button-primary" href="https://revolut.me/raulu8m39" target="_blank" rel="noopener noreferrer">Open Revolut</a>
+          </div>
+          <div class="link-row">
+            <div>
+              <p class="tiny">Telegram</p>
+              <code>@raul98t</code>
+            </div>
+            <a class="button button-secondary" href="https://t.me/raul98t" target="_blank" rel="noopener noreferrer">Open Telegram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>© 2026 Iwannaberich — officially trying to beat poverty in style.</p>
+      <a href="https://t.me/raul98t" target="_blank" rel="noopener noreferrer">@raul98t</a>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const toggle=document.querySelector('[data-theme-toggle]');
+      const root=document.documentElement;
+      let theme=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+      root.setAttribute('data-theme',theme);
+      const renderIcon=()=>{
+        toggle.innerHTML=theme==='dark'
+          ? '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"></circle><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"></path></svg>'
+          : '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+        toggle.setAttribute('aria-label', theme==='dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+      renderIcon();
+      toggle.addEventListener('click',()=>{theme=theme==='dark'?'light':'dark';root.setAttribute('data-theme',theme);renderIcon();});
+    })();
+  </script>
+</body>
+</html>
